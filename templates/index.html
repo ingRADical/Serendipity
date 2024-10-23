@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Serendipity</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Georgia, sans-serif;
+            overflow: auto; 
+        }
+
+        img { 
+            width: 1440px;
+            margin-top: 15px; 
+            margin-left: -20px
+        }
+
+        main {
+            min-height: 200vh; 
+            padding: 20px; 
+            position: relative; 
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="background" id="background">
+        <header>
+            <h1>Serendipity</h1>
+            <nav>
+                <a href="{{ url_for('index') }}">Home</a>
+                <a href="{{ url_for('menu') }}">Menu</a>
+                <a href="{{ url_for('order') }}">Order</a>
+            </nav>
+        </header>
+
+     <main>
+
+        <img src="static/images/website.jpg">
+        <img src="static/images/website1.jpg">
+        <div style="height: 150px;">
+            <h3>See Menu for More Details</h3>
+        </div>
+     </main>
+
+    </div>  
+
+    <div class="fade-in-word" id="fadeInWord">Serendipity</div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const word = document.getElementById('fadeInWord');
+            const background = document.getElementById('background');
+
+            setTimeout(() => {
+                background.classList.add('blurred'); 
+                word.classList.add('fade-in'); 
+            }, 500); 
+
+            setTimeout(() => {
+                word.classList.remove('fade-in'); 
+                word.classList.add('fade-out');
+                background.classList.remove('blurred'); 
+            }, 2000); 
+
+            setTimeout(() => {
+                word.style.display = 'none'; 
+            }, 4000); 
+        });
+    </script>
+</body>
+</html>
